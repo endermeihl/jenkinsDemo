@@ -1,6 +1,9 @@
 pipeline {
     agent {
-        maven
+        node {
+               label ‘xxx-agent-机器’
+                customWorkspace "${env.JOB_NAME}/${env.BUILD_NUMBER}"
+        }
     }
     stages {
         stage('Build') {
