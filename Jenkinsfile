@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        node {
-               label ‘xxx-agent-机器’
-                customWorkspace "${env.JOB_NAME}/${env.BUILD_NUMBER}"
-        }
-    }
+    agent any
     stages {
         stage('Build') {
             steps {
