@@ -14,6 +14,11 @@ pipeline {
         sh 'docker build -t ender/cloud-server:1  --build-arg JAR_FILE=target/app.jar .'
       }
     }
+    stage('start') {
+      steps {
+        sh 'docker run -d -p 1001:1001 --name eureka-server ender/cloud-server:1'
+      }
+    }
   }
   environment {
     JAVA_HOME = '/usr/local/java'
