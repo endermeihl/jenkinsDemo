@@ -8,9 +8,9 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh 'mvn -B -DskipTests clean package'
-        sh 'docker build -t ender/cloud-server:1  --build-arg JAR_FILE=target/app.jar'
         echo '2.Build Docker Image Stage'
+        sh 'mvn -B -DskipTests clean package'
+        sh 'docker build -t ender/cloud-server:1  --build-arg JAR_FILE=target/app.jar .'
       }
     }
   }
